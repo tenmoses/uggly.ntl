@@ -1,0 +1,49 @@
+services:
+    sonata.admin.post:
+        class: Site\FrontEndBundle\Admin\PostAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Посты" }
+        arguments:
+            - ~
+            - Site\FrontEndBundle\Entity\Post
+            - ~
+        calls:
+            - [ setTranslationDomain, [FrontEndBundle]]
+
+    sonata.admin.tags:
+        class: Site\FrontEndBundle\Admin\TagsAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Теги" }
+        arguments:
+            - ~
+            - Site\FrontEndBundle\Entity\Tags
+            - ~
+        calls:
+            - [ setTranslationDomain, [FrontEndBundle]]
+    
+    sonata.admin.categories:
+        class: Site\FrontEndBundle\Admin\CategoriesAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Категории" }
+        arguments:
+            - ~
+            - Site\FrontEndBundle\Entity\Categories
+            - ~
+        calls:
+            - [ setTranslationDomain, [FrontEndBundle]]
+            
+    tags_manager:
+        class: Site\FrontEndBundle\Service\TagsManager
+        arguments:
+            - @service_container
+            
+    posts_manager:
+        class: Site\FrontEndBundle\Service\PostsManager
+        arguments:
+            - @service_container
+    
+    categories_manager:
+        class: Site\FrontEndBundle\Service\CategoriesManager
+        arguments:
+            - @service_container
+            

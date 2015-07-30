@@ -1,0 +1,19 @@
+site_front_end_homepage:
+    path:     /page/{page}
+    defaults: { _controller: SiteFrontEndBundle:Posts:index , page : 1 }
+    requirements:
+        page: \d+
+
+post:
+    path:     /post/{slug}
+    defaults: { _controller: SiteFrontEndBundle:Posts:showPostBySlug }
+
+posts_by_tag:
+    path:     /tag/{slug}
+    defaults: { _controller: SiteFrontEndBundle:Posts:showPostsByTag }
+    
+posts_by_category:
+    path:     /category/{slug}/{page}
+    defaults: { _controller: SiteFrontEndBundle:Posts:showPostsByCategory, page: 1 }
+    requirements:
+        page: \d+

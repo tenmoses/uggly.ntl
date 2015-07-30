@@ -1,0 +1,23 @@
+{% extends 'baseTemplate.html.twig' %}
+
+{% block title %}
+    Main
+{% endblock %}
+
+{% block content %}
+    <section>
+        {% for post in posts%}
+            {{ post.title }} <br>
+            <a href="{{ url ('posts_by_category', {'slug': post.getCategories.getSlug}) }}">{{ post.getCategories }}</a> <br>
+            {{ post.preview }} <br>
+            <a href="{{ url ('post', {'slug': post.slug}) }}">Читать дальше...</a>
+            {{ post.created|localizeddate('none', 'none', 'ru_RU', null, " d MMMM Y") }} <br>
+            {% for tag in post.getTags %}
+                <a href="{{ url ('posts_by_tag', {'slug': tag.slug}) }}">{{ tag.name }}</a>
+            {% endfor %} <br><br>
+        {% endfor %}
+        <div class="navigation">
+            {{ knp_pagination_render(posts, 'SiteFrontEndBundle::pagination.html.twig') }}
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'baseTemplate.html.twig' %}
+
+{% block title %}
+    Posts
+{% endblock %}
+
+{% block content %}
+    <section>
+        {% for post in posts %}
+            {{ post.title }} <br>
+            {{ post.getCategories }} <br>
+            {{ post.preview }} <br>
+            <a href="{{ url ('post', {'slug': post.slug}) }}">Читать дальше...</a>
+            {{ post.created|localizeddate('none', 'none', 'ru_RU', null, " d MMMM Y") }} <br>
+        {% endfor %}
+    </section>
+{% endblock %}

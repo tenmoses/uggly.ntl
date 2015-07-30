@@ -1,0 +1,19 @@
+{% extends 'baseTemplate.html.twig' %}
+
+{% block title %}
+    Main
+{% endblock %}
+
+{% block content %}
+    <section>
+        {% for post%}
+            {{ title }} <br>
+            {{ preview }} <br>
+            {{ body }} <br>
+            {{ created|localizeddate('none', 'none', 'ru_RU', null, " d MMMM Y") }} <br>
+            {% for tag in post %}
+            {{ tag.name }}
+            {% endfor %} <br><br>
+        {% endfor %}   
+    </section>
+{% endblock %}
