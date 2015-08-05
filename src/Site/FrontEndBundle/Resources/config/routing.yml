@@ -17,3 +17,11 @@ posts_by_category:
     defaults: { _controller: SiteFrontEndBundle:Posts:showPostsByCategory, page: 1 }
     requirements:
         page: \d+
+
+form:
+    path:     /form
+    defaults: { _controller: SiteFrontEndBundle:Form:getTagsAndCategories }
+    
+get_form:
+    path:     /get_form
+    defaults: { _controller: SiteFrontEndBundle:Form:getForm }

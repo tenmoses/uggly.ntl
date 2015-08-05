@@ -1,6 +1,6 @@
 Site\FrontEndBundle\Entity\Categories:
     type: entity
-    table: categories
+    table: null
     repositoryClass: Site\FrontEndBundle\Repository\CategoriesRepository
     id:
         id:

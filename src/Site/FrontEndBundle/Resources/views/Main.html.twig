@@ -6,6 +6,7 @@
 
 {% block content %}
     <section>
+        {{ dump (slug) }}
         {% for post in posts%}
             {{ post.title }} <br>
             <a href="{{ url ('posts_by_category', {'slug': post.getCategories.getSlug}) }}">{{ post.getCategories }}</a> <br>
@@ -19,5 +20,6 @@
         <div class="navigation">
             {{ knp_pagination_render(posts, 'SiteFrontEndBundle::pagination.html.twig') }}
         </div>
+        {{ render (controller('SiteFrontEndBundle:Main:sideBar')) }}
     </section>
 {% endblock %}

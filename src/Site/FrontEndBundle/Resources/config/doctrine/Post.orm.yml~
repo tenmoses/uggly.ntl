@@ -1,6 +1,6 @@
 Site\FrontEndBundle\Entity\Post:
     type: entity
-    table: post
+    table: posts
     repositoryClass: Site\FrontEndBundle\Repository\PostRepository
     id:
         id:

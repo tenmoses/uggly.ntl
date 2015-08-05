@@ -23,7 +23,7 @@ class PostsManager
     public function getPostsForSideBar()
     {
         $posts = $this->getEm()
-                      ->getRepository('SiteFrontEndBundle:Posts')
+                      ->getRepository('SiteFrontEndBundle:Post')
                       ->getNumberOfPosts();
         return $posts;
     }

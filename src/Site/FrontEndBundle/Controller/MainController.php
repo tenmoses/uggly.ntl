@@ -8,7 +8,7 @@ class MainController extends Controller
 {
     public function indexAction()
     {
-        
+        return $this->render('SiteFrontEndBundle::Main.html.twig');
     }
     
     public function sideBarAction()
@@ -16,5 +16,5 @@ class MainController extends Controller
         $posts = $this->get('posts_manager')
                       ->getPostsForSideBar();
         return $this->render('SiteFrontEndBundle::SideBar.html.twig', array('posts' => $posts));
-    }
+        }
 }

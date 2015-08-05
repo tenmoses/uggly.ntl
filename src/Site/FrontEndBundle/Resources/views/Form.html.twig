@@ -1,0 +1,20 @@
+{% extends 'baseTemplate.html.twig' %}
+
+{% block content %}
+<form method="POST" action="{{ url ('get_form') }}">
+   <input type="text" name="data[title]"><br>
+   <input type="text" name="data[preview]"><br>
+   <input type="text" name="data[body]"><br>
+   <select name="data[category]">
+       {% for category in categories %}
+           <option value="{{ category.id }}">{{ category.name }}</option>
+       {% endfor %}
+   </select><br>
+   <select name="data[tags]">
+       {% for tag in tags %}
+           <option value="{{ tag.id }}">{{ tag.name }}</option>
+       {% endfor %}
+   </select><br>
+   <input type="submit" name="writenew" value="Поделиться новостью">
+</form>
+{% endblock %}

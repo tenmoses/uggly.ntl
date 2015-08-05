@@ -1,0 +1,5 @@
+
+{% for post in posts %}
+    <a href="{{ url ('post', {'slug':post.slug})}}">{{ post.title }}</a><br>
+    {{ post.preview }}<br>
+{% endfor %}

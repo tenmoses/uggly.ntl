@@ -19,15 +19,16 @@ class PostRepository extends EntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
     
-    public function getNumberOfPosts($slug = '')
+    public function getNumberOfPosts()
     {
         $qb = $this->createQueryBuilder('p');
-        $qb->andWhere('c.slug:slug');
-        if ($slug != null) {
-        $qb->join('SiteFrontEndBundle:Categories','c')
-           ->setParameter('slug', $slug);
-        }
-        $qb->orderBy('p.id', 'DESC')
+        $qb->select('p.id','p.title','p.preview','p.slug','p.created')
+//        $qb->andWhere('c.slug:slug');
+//        if ($slug != null) {
+//        $qb->join('SiteFrontEndBundle:Categories','c')
+//           ->setParameter('slug', $slug);
+//        }
+           ->orderBy('p.id', 'DESC')
            ->setMaxResults(3);
         return $qb->getQuery()->getResult();
     }

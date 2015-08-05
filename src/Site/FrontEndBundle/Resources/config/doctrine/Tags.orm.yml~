@@ -1,7 +1,7 @@
-Site\FrontEndBundle\Entity\Categories:
+Site\FrontEndBundle\Entity\Tags:
     type: entity
-    table: categories
-    repositoryClass: Site\FrontEndBundle\Repository\CategoriesRepository
+    table: null
+    repositoryClass: Site\FrontEndBundle\Repository\TagsRepository
     id:
         id:
             type: integer
@@ -12,13 +12,15 @@ Site\FrontEndBundle\Entity\Categories:
         name:
             type: string
             length: 255
-        created:
-            type: datetime
         slug:
             type: string
             length: 255
-    oneToMany:
+        created:
+            type: datetime
+            
+    manyToMany:
         post:
             targetEntity: Post
-            mappedBy: categories
+            mappedBy: tags
+    
     lifecycleCallbacks: {  }

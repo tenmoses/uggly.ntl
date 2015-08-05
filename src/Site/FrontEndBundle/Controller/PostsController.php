@@ -41,7 +41,7 @@ class PostsController extends Controller
         
         $paginator     = $this->get('knp_paginator');
         $posts_on_page = $paginator->paginate($posts, $page, 5);
-        return $this->render('SiteFrontEndBundle::Main.html.twig', array('posts' => $posts_on_page));
+        return $this->render('SiteFrontEndBundle::Main.html.twig', array('posts' => $posts_on_page, 'slug' => $slug));
     }
 }
 

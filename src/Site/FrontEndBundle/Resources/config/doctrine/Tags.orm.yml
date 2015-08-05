@@ -1,6 +1,6 @@
 Site\FrontEndBundle\Entity\Tags:
     type: entity
-    table: null
+    table: tags
     repositoryClass: Site\FrontEndBundle\Repository\TagsRepository
     id:
         id:
