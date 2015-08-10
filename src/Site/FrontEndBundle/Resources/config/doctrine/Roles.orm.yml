@@ -1,0 +1,21 @@
+Site\FrontEndBundle\Entity\Roles:
+    type: entity
+    table: roles
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        created:
+            type: datetime
+            
+    manyToMany:
+        users:
+            targetEntity: Users
+            mappedBy: roles
+    lifecycleCallbacks: {  }
